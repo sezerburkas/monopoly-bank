@@ -1,0 +1,167 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+*{
+  color:#fff;
+}
+
+@font-face {
+  font-family: 'Kabel Light';
+  src: url('/KabelLight.woff2') format('truetype');
+  /* You can also include other font properties if needed */
+}
+
+@font-face {
+  font-family: 'Kabel Regular';
+  src: url('/KabelRegular.woff2') format('truetype');
+  /* You can also include other font properties if needed */
+}
+
+
+*{
+  font-family: 'Kabel Regular';
+}
+
+html, body{
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+}
+
+body{
+  display: flex;
+  flex-direction: column;
+
+  background: rgb(14,2,44);
+  background: -moz-linear-gradient(135deg, rgba(14,2,44,1) 27%, rgba(33,11,87,1) 100%);
+  background: -webkit-linear-gradient(135deg, rgba(14,2,44,1) 27%, rgba(33,11,87,1) 100%);
+  background: linear-gradient(135deg, rgba(14,2,44,1) 27%, rgba(33,11,87,1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#0e022c",endColorstr="#210b57",GradientType=1);
+}
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+
+.header{
+  width: 100%;
+  padding:1.3rem 2rem;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.upper h1{
+ font-size:2rem;
+ color:rgba(255,255,255,.8);
+ font-family: 'Kabel Light';
+}
+
+.balance-container{
+  width:100%;
+  height:360px;
+
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.background-circle{
+  position: absolute;
+
+  background: rgb(255,255,255);
+  background: -moz-linear-gradient(180deg, rgba(255,255,255,0.14) 2%, rgba(255,255,255,0) 100%);
+  background: -webkit-linear-gradient(180deg, rgba(255,255,255,0.14) 2%, rgba(255,255,255,0) 100%);
+  background: linear-gradient(180deg, rgba(255,255,255,0.14) 2%, rgba(255,255,255,0) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#ffffff",endColorstr="#ffffff",GradientType=1);
+
+  width:360px;
+  height:360px;
+  border-radius: 300rem;
+  backdrop-filter: blur(20px);
+  z-index: -1;
+}
+
+.down{
+  font-size:2.8rem;
+  position: relative;
+  padding-bottom: 2.6rem;
+}
+
+.money-symbol{
+  transform: rotate(180deg);
+  display: inline-block;
+  height:95%;
+}
+
+.navigation{
+  padding-bottom:2rem;
+  display: flex;
+  justify-content: center;
+  align-items: end;
+  flex: 1 1 auto;
+}
+
+.navigation-container{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  flex: 1 1 auto;
+}
+
+.navigation-container .row{
+  display: flex;
+  width: 100%;
+}
+
+.navigation-container .row a{
+  background-color: rgba(255,255,255,.9);
+  color: #2b2b2b!important;
+  width:72px;
+  height: 72px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10rem;
+}
+
+.fphwbx{
+  background-color: rgba(255, 255, 255, 0.9)!important;
+  border:none!important;
+  box-shadow: 2px 2px 12px 0px rgba(255, 255, 255, .3)!important;
+}
+
+.fphwbx:focus, .fphwbx:hover, .fphwbx:active{
+  color: #2b2b2b!important;
+  box-shadow: 2px 2px 12px 0px rgba(255, 255, 255, .5)!important;
+}
+
+.ijSoPp:is(:hover, :focus, :active)>.sc-gKsecS, .ibpUDM:is(:hover, :focus, :active)>.sc-gKsecS{
+  background-color: #2b2b2b!important;
+}
+
+.jPJcGE li{
+  overflow: hidden;
+  border-radius: 10rem;
+}
+
+.menu-icons{
+  height:55%;
+}
+
+.menu-icons path{
+  color: #2b2b2b!important;
+}

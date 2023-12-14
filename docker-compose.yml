@@ -1,0 +1,20 @@
+version: '3'
+
+services:
+  web:
+    build:
+      context: ./app/bank
+    ports:
+      - "8000:8000"
+    command: python manage.py runserver 0.0.0.0:8000
+    volumes:
+      - ./app/bank:/app
+
+  react:
+    image: node:20.10.0
+    working_dir: /app/frontend
+    ports:
+      - "3001:3001"
+    command: npm run dev
+    volumes:
+      - ./app/frontend:/app/frontend
