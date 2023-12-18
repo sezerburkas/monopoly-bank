@@ -43,7 +43,7 @@ const Login = () => {
     <>
       <div className="flex w-full justify-center flex-col">
         <div className="w-full flex justify-center">
-          <div className="w-3/4 mt-2">
+          <div className="w-3/4 mt-2 flex justify-center">
             <div className={`flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset ${isValidUsername ? 'focus-within:ring-indigo-600' : 'ring-red-500'} sm:max-w-md`}>
               <input
                 type="text"

@@ -2,36 +2,40 @@
 import React from "react";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faReceipt, faHouse, faPaperPlane, faMoneyBill, faGavel } from "@fortawesome/free-solid-svg-icons";
-import Link from "next/link";
+import { faReceipt, faHouse, faPaperPlane, faMoneyBill, faGavel, faHotel } from "@fortawesome/free-solid-svg-icons";
 
 import { CircleMenu, CircleMenuItem } from "react-circular-menu";
+import { useRouter } from 'next/navigation';
 
 const Nav = () => {
+  const router = useRouter();
   return (
     <div className="navigation">
       <div className="navigation-container">
         <CircleMenu
           startAngle={180}
-          rotationAngle={230}
+          rotationAngle={217}
           itemSize={4}
           radius={9}
           rotationAngleInclusive={false}
           className="nav"
         >
-          <CircleMenuItem className="nav-item" tooltip="Transaction History">
+          <CircleMenuItem onClick={() => router.push('/transaction-history')} className="nav-item" tooltip="Transaction History">
             <FontAwesomeIcon icon={faReceipt} className="menu-icons"/>
           </CircleMenuItem>
-          <CircleMenuItem className="nav-item" tooltip="Bills">
+          <CircleMenuItem onClick={() => router.push('/bills')}  className="nav-item" tooltip="Bills">
             <FontAwesomeIcon icon={faMoneyBill} className="menu-icons"/>
           </CircleMenuItem>
-          <CircleMenuItem className="nav-item" tooltip="Auction">
-            <FontAwesomeIcon icon={faGavel} className="menu-icons"/>
-          </CircleMenuItem>
-          <CircleMenuItem className="nav-item" tooltip="Properties">
+          <CircleMenuItem onClick={() => router.push('/')}  className="nav-item" tooltip="Home">
             <FontAwesomeIcon icon={faHouse} className="menu-icons"/>
           </CircleMenuItem>
-          <CircleMenuItem className="nav-item" tooltip="Send Money" tooltipPlacement="top">
+          <CircleMenuItem onClick={() => router.push('/auction')} className="nav-item" tooltip="Auction">
+            <FontAwesomeIcon icon={faGavel} className="menu-icons"/>
+          </CircleMenuItem>
+          <CircleMenuItem onClick={() => router.push('/properties')}  className="nav-item" tooltip="Properties">
+            <FontAwesomeIcon icon={faHotel} className="menu-icons"/>
+          </CircleMenuItem>
+          <CircleMenuItem onClick={() => router.push('/send-money')} className="nav-item" tooltip="Send Money" tooltipPlacement="top">
             <FontAwesomeIcon icon={faPaperPlane} className="menu-icons"/>
           </CircleMenuItem>
         </CircleMenu>

@@ -16,3 +16,12 @@ model User {
   balance Int 
 }
 
+model Transactions {
+  id    Int     @id @default(autoincrement())
+  action String
+  fromUsername  String
+  targetUsername  String  
+  amount Int
+  date DateTime @default(now())
+}
+
