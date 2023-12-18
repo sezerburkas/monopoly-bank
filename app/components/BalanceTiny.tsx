@@ -23,10 +23,10 @@ const Balance = () => {
           });
 
           const userData = await response.json();
-          const newBalance = userData.balance || 0;
+          const newBalance = parseInt(userData.balance) || 0;
 
           // Update balance only if it has changed
-          if (newBalance !== prevBalance) {
+          if (newBalance === parseInt(0) || newBalance !== prevBalance) {
             setBalance(newBalance);
             setTimeout(()=>{
               setPrevBalance(newBalance);

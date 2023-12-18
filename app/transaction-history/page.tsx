@@ -44,7 +44,6 @@ const page = () => {
           });
 
           setTableData(tableDataNew);
-          console.log(tableDataNew);
 
         } catch (error) {
           console.error('Error fetching user data:', error);
@@ -82,7 +81,7 @@ const page = () => {
                       {transaction.username}
                     </td>
                     <td className={(transaction.amount > 0)? "text-green-600":"text-red-600"}>
-                      {transaction.amount}
+                      {(transaction.amount > 0)? <><span className="money-symbol text-green-600">₩</span>{transaction.amount}</>: <>-<span className="money-symbol text-red-600">₩</span>{Math.abs(transaction.amount)}</>}
                     </td>
                   </tr>
                 ))}

@@ -9,7 +9,7 @@ const page = () => {
     <>
         <Header />
         <BalanceTiny />
-        <div className="w-full relative">
+        <div className="w-full h-full relative flex flex-col justify-center items-center">
             <SendMoney />
         </div>
         <Nav />

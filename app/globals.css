@@ -26,12 +26,7 @@ html,
 body {
   width: 100%;
   height: 100%;
-  overflow: hidden;
-}
-
-body {
-  display: flex;
-  flex-direction: column;
+  overflow-x: hidden;
 
   background: rgb(14, 2, 44);
   background: -moz-linear-gradient(
@@ -49,7 +44,11 @@ body {
     rgba(14, 2, 44, 1) 27%,
     rgba(33, 11, 87, 1) 100%
   );
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#0e022c",endColorstr="#210b57",GradientType=1);
+}
+
+body {
+  display: flex;
+  flex-direction: column;
 }
 
 :root {
@@ -101,7 +100,7 @@ body {
 .money-20:hover .money-symbol,
 .money-50:hover .money-symbol,
 .money-100:hover .money-symbol,
-.money-500:hover .money-symbol  {
+.money-500:hover .money-symbol {
   color: #2b2b2b !important;
   transition: all 0.3s;
 }
@@ -142,9 +141,16 @@ body {
   transition: all 0.3s;
 }
 
-.money-reset:hover{
+.money-reset:hover {
   background-color: #800d0d;
   transition: all 0.3s;
+}
+.text-blue {
+  color: #4f46e5;
+  background-color: rgba(255, 255, 255, 0.9);
+  padding: 0rem 0.2rem;
+  border-radius: 3px;
+  margin-left: 0.2rem;
 }
 
 .btn {
@@ -155,12 +161,38 @@ body {
   padding: 0.5rem 0.75rem;
   border-radius: 3px;
   font-weight: 600;
-  box-shadow: 2px 2px 12px 0px rgba(255, 255, 255, 0.1);
+  box-shadow: 2px 2px 12px 0px rgba(0, 0, 0, 0.4);
   transition: all 0.3s;
 }
 
 .btn:hover {
   background: #5d55e9;
+  transition: all 0.3s;
+}
+
+.btn-red {
+  background: #940404;
+}
+.btn-red:hover {
+  background: #aa0909;
+  transition: all 0.3s;
+}
+
+.btn-green {
+  background: #057423;
+}
+
+.btn-green:hover {
+  background: #057423;
+  transition: all 0.3s;
+}
+
+.btn-yellow {
+  background: #b7b92c;
+}
+
+.btn-yellow:hover {
+  background: #b7b92c;
   transition: all 0.3s;
 }
 
@@ -198,9 +230,9 @@ body {
   justify-content: center;
 }
 
-.balance-tiny-container .down{
- padding-bottom: .2rem;
- padding-left:1rem;
+.balance-tiny-container .down {
+  padding-bottom: 0.2rem;
+  padding-left: 1rem;
 }
 
 .background-circle {
@@ -222,13 +254,10 @@ body {
     rgba(255, 255, 255, 0.14) 2%,
     rgba(255, 255, 255, 0) 100%
   );
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#ffffff",endColorstr="#ffffff",GradientType=1);
-
   width: 360px;
   height: 360px;
   border-radius: 300rem;
-  backdrop-filter: blur(20px);
-  z-index: -1;
+  z-index: 0;
 }
 
 .down {
@@ -241,6 +270,7 @@ body {
   transform: rotate(180deg);
   display: inline-block;
   height: 95%;
+  font-family: Arial, sans-serif;
 }
 
 .navigation {
@@ -249,6 +279,16 @@ body {
   justify-content: center;
   align-items: end;
   flex: 1 1 auto;
+  position: fixed;
+  top: 50%;
+  right: -45px;
+  transition: all 0.3s;
+  z-index: 999;
+}
+
+.navigation.open {
+  right: 10px;
+  transition: all 0.3s;
 }
 
 .navigation-container {
@@ -273,6 +313,304 @@ body {
   justify-content: center;
   align-items: center;
   border-radius: 10rem;
+}
+
+.bill-card {
+  border: thin solid #fff;
+  border-radius: 6px;
+  font-size: 1.2rem;
+  width: 45%;
+  padding: 0.7rem;
+  position: relative;
+  overflow: hidden;
+  background: rgba(58, 5, 5, 0.7);
+  transition: all 0.5s;
+}
+
+.bill-card.paid {
+  background: rgba(1, 54, 22, 0.7);
+  transition: all 0.5s;
+}
+
+.bill-card .error {
+  background-color: #800d0d;
+  width: 95%;
+  display: block;
+  text-align: center;
+  border-radius: 3px;
+  position: absolute;
+  top: 0px;
+  left: 0;
+  right: 0;
+  margin: auto;
+  transition: top 0.5s ease-in-out;
+  height: 100%;
+  z-index: 999;
+  align-items: center;
+  display: flex;
+}
+
+.bill-card .error.hidden {
+  top: -100%;
+  transition: top 0.5s ease-in-out;
+}
+
+.bill-container {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+.bill-container .title {
+  font-size: 1.5rem;
+  text-transform: uppercase;
+}
+
+.bill-container .amount {
+  font-size: 3rem;
+}
+
+.bill-container .description {
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+  height: 50px;
+  align-items: center;
+}
+
+.property-card {
+  border: thin solid #fff;
+  border-radius: 6px;
+  font-size: 1.2rem;
+  width: 45%;
+  padding: 0.7rem;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.5s;
+}
+
+.property-card .error {
+  background-color: #800d0d;
+  width: 100%;
+  display: block;
+  text-align: center;
+  border-radius: 3px;
+  position: absolute;
+  top: 0px;
+  left: 0;
+  right: 0;
+  margin: auto;
+  transition: top 0.5s ease-in-out;
+  height: 100%;
+  z-index: 999;
+  align-items: center;
+  display: flex;
+}
+
+.property-card .error.hidden {
+  top: -100%;
+  transition: top 0.5s ease-in-out;
+}
+
+.property-card.buy-request{
+  background-color: #3a953a;
+}
+
+.property-card.sell-request{
+  background-color: #b9b710;
+}
+
+.property-card .requested-amount{
+  background-color: #3a953a;
+  display: flex;
+  flex-direction: column;
+  border-radius: 3px;
+}
+
+.property-card .mortgage-approve{
+  position: fixed;
+  z-index: 9999;
+  width:100%;
+  height: 100%;
+  backdrop-filter: blur(6px);
+  left:0;
+  right:0;
+  top:0;
+  bottom:0;
+  margin:auto;
+  justify-content: center;
+  align-items: center;
+}
+
+.property-card .mortgage-approve  .mortgage-contanier{
+  background-color: #4f46e5;
+  border-radius: 7px;
+  border: thin solid #fff;
+  padding: 1rem 2rem;
+  width:90%;
+  height:fit-content;
+  display: flex;
+  flex-direction: column;
+  gap:.3rem;
+}
+.property-card .mortgage-approve  .mortgage-contanier .amount{
+  font-size:3.5rem;
+}
+
+.mortgaged .mortgage-remove{
+  position: fixed;
+  z-index: 9999;
+  width:100%;
+  height: 100%;
+  backdrop-filter: blur(6px);
+  left:0;
+  right:0;
+  top:0;
+  bottom:0;
+  margin:auto;
+  justify-content: center;
+  align-items: center;
+}
+
+.mortgaged .mortgage-remove  .mortgage-contanier{
+  background-color: #a39f19;
+  border-radius: 7px;
+  border: thin solid #fff;
+  padding: 1rem 2rem;
+  width:90%;
+  height:fit-content;
+  display: flex;
+  flex-direction: column;
+  gap:.3rem;
+}
+
+.mortgaged .mortgage-remove  .mortgage-contanier .amount{
+  font-size:3.5rem;
+}
+
+.mortgage-contanier .button-container .btn{
+  width:45%;
+}
+
+
+.property-card .header, .mortgaged .header {
+  display: flex;
+  flex-direction: column;
+  padding: 0.3rem 0;
+  margin-bottom: 0.3rem;
+  border-radius: 3px;
+  background: rgb(153, 153, 153);
+}
+
+.property-card .mortgaged{
+  width: 100%;
+  height: 100%;
+  border-radius: 3px;
+  top: 0;
+  left:0;
+  background: #a10909;
+  z-index: 1;
+  justify-content: space-between;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  padding:1rem;
+}
+
+.property-card .to-sell{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  gap:.5rem;
+}
+
+.property-card .to-sell span{
+  font-size:.9rem;
+}
+
+.property-card .to-sell .header .name{
+  text-transform: uppercase;
+  display: block;
+  text-align: center;
+  font-size: 2rem;
+}
+.property-card .to-sell .header .type{
+  font-size: 0.8rem;
+}
+
+.property-card .mortgaged .header .name{
+  text-transform: uppercase;
+}
+
+.property-card .mortgaged .amount{
+  font-size: 2rem;
+}
+
+.property-card .button-container{
+  z-index: 2;
+}
+
+.property-card.kadikoy .header .name,
+.property-card.sirkeci .header .name,
+.property-card.haydarpasa .header .name,
+.property-card.kabatas .header .name,
+.mortgaged.kadikoy .header .name,
+.mortgaged.sirkeci .header .name,
+.mortgaged.haydarpasa .header .name,
+.mortgaged.kabatas .header .name {
+  font-size: 1.2rem;
+}
+
+.property-container, .mortgaged {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.property-container .type, .mortgaged .type {
+  font-size: 0.8rem;
+}
+
+.property-container .rent-text, .mortgaged .rent-text{
+  font-size: 0.9rem;
+}
+
+.property-container .name, .mortgaged .name {
+  font-size: 2rem;
+  text-transform: uppercase;
+}
+
+.property-container .amount, .mortgaged .amount {
+  font-size: 1.7rem;
+}
+
+.property-card.blue .header, .mortgaged.blue .mortgage-remove .header {
+  background: rgb(20, 2, 126);
+  transition: all 0.5s;
+}
+
+.property-card.green .header, .mortgaged.green .mortgage-remove .header {
+  background: rgb(15, 116, 6);
+  transition: all 0.5s;
+}
+
+
+.property-card .mortgaged .header{
+  background: transparent;
+  text-align: center;
+}
+
+.property-card.blue .mortgage-remove .header {
+  background: rgb(20, 2, 126);
+  transition: all 0.5s;
+}
+
+.property-card.green .mortgage-remove .header {
+  background: rgb(15, 116, 6);
+  transition: all 0.5s;
 }
 
 .fphwbx {

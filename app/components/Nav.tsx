@@ -1,5 +1,5 @@
 "use client"
-import React from "react";
+import React, { useState } from "react";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faReceipt, faHouse, faPaperPlane, faMoneyBill, faGavel, faHotel } from "@fortawesome/free-solid-svg-icons";
@@ -9,11 +9,18 @@ import { useRouter } from 'next/navigation';
 
 const Nav = () => {
   const router = useRouter();
+  const [openMenu, toggleMenu] = useState(false);
+
+  const openMenuSlide = () => {
+    toggleMenu(!openMenu)
+  }
+
   return (
-    <div className="navigation">
+    <div className={"navigation"+((openMenu)?" open":"")}>
       <div className="navigation-container">
         <CircleMenu
-          startAngle={180}
+          onMenuToggle={openMenuSlide}
+          startAngle={90}
           rotationAngle={217}
           itemSize={4}
           radius={9}

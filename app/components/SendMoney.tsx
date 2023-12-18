@@ -26,9 +26,6 @@ const SendMoney = () => {
 
   const addMoney = (value) => {
     const newValue = parseInt(selectedAmount)+parseInt(value);
-    console.log("selected:"+selectedAmount);
-    console.log("value:"+value);
-    console.log("new:"+newValue);
     if (newValue > userMoney) {
       setSelectedAmount(userMoney);
     } else {

@@ -14,6 +14,7 @@ model User {
   id    Int     @id @default(autoincrement())
   username  String  @unique
   balance Int 
+  isBank Boolean @default(false)
 }
 
 model Transactions {
@@ -25,3 +26,51 @@ model Transactions {
   date DateTime @default(now())
 }
 
+model Bills{
+  id Int @id @default(autoincrement())
+  title String
+  description String
+  fromUsername  String
+  targetUsername String
+  amount Int
+  isPaid Boolean
+  date DateTime @default(now())
+}
+
+model Properties{
+  id Int @id @default(autoincrement())
+  type String
+  color String
+  name String
+  value Int @default(0)
+  rent Int @default(0)
+  baseRent Int @default(0)
+  setRent Int @default(0)
+  lv1Rent Int @default(0)
+  lv2Rent Int @default(0)
+  lv3Rent Int @default(0)
+  lv4Rent Int @default(0)
+  lv5Rent Int @default(0)
+  houseCount Int @default(0)
+  hotelCount Int @default(0)
+  houseValue Int @default(0)
+  hotelValue Int @default(0)
+  isMortgage Boolean @default(false)
+  mortgage Int @default(0)
+  mortgageRemoval Int @default(0)
+  belongsTo String
+  transferTo String?
+  requestedAmount Int? 
+  requestId Int? 
+}
+
+model sellRequest{
+  id Int @id @default(autoincrement())
+  propertyId Int
+  fromUsername String
+  targetUsername String
+  amount Int
+  isRequested Boolean @default(true)
+  isApproved Boolean @default(false)
+  date DateTime @default(now())
+}
